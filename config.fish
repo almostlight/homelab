@@ -1,8 +1,11 @@
 if status is-interactive
     set -U fish_greeting
-    if acpi 2>/dev/null | grep -oE [0-9]+% | sed s/%//
+    clear
+    uptime
+    if test -e /sys/class/power_supply/BAT0/capacity
         cat /var/log/batcheck.log
     end
+    pwrstat -status | grep State
     pct list
 end
 
