@@ -5,7 +5,7 @@ if status is-interactive
     if test -e /sys/class/power_supply/BAT0/capacity
         cat /var/log/batcheck.log
     end
-    pwrstat -status | grep State
+    pwrstat -status | awk -F' ' '/State/ {print "UPS status:\t", $2, $3}'
     pct list
 end
 
