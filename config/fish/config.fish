@@ -9,11 +9,6 @@ if status is-interactive
     pct list
 end
 
-# alias reboot='echo "unavailable on this system"'
-alias kexec-reboot='\
-	echo "kernel: $(uname -r)" \
-	&& kexec -l /boot/vmlinuz-$(uname -r) --initrd=/boot/initrd.img-$(uname -r) --reuse-cmdline \
-	&& systemctl kexec'
-alias lxc="pct"
+alias reboot='echo "unavailable on this system"'
 alias enter="pct enter"
 alias daemon-reload="systemctl daemon-reload"
